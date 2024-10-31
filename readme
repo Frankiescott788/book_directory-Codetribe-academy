@@ -1,0 +1,49 @@
+Book Directory API
+
+This is a simple API for managing a directory of books, built with Node.js and Express. It allows users to perform CRUD operations on a list of books using different HTTP methods (GET, POST, PUT, DELETE). The project aims to provide trainees with a practical understanding of Express, HTTP methods, JSON handling, and basic validation.
+
+The Book Directory API allows users to manage information for each book, including:
+
+Book Title
+Author
+Publisher
+Published Date
+ISBN (International Standard Book Number)
+Endpoints
+The API operates at http://localhost:3000/ and provides the following endpoints:
+
+Get All Books
+Endpoint: GET /books
+Description: Retrieves a list of all books in the directory.
+Get Book by ISBN
+Endpoint: GET /books/:isbn
+Description: Retrieves information about a specific book using its ISBN.
+Response: Returns the book details if found; otherwise, returns a 404 error with a "Book not found" message.
+Add a New Book
+Endpoint: POST /books
+Description: Adds a new book to the directory.
+
+Request Body: JSON object containing the following fields:
+
+{
+  "title": "Book Title",
+  "author": "Author Name",
+  "publisher": "Publisher Name",
+  "publishedDate": "YYYY-MM-DD",
+  "isbn": "ISBN Number"
+}
+
+
+Validation: All fields are required. If any field is missing, the server returns a 400 error with a message stating that "All fields are required."
+Update a Book
+Endpoint: PUT /books/:isbn
+Description: Updates details of a specific book by its ISBN.
+Request Body: JSON object containing any of the fields to be updated (title, author, publisher, publishedDate).
+Response: Returns the updated book details if found; otherwise, returns a 404 error if the book is not found.
+Delete a Book
+Endpoint: DELETE /books/:isbn
+Description: Deletes a book from the directory using its ISBN.
+Response: Returns a success message if the book is deleted; otherwise, returns a 404 error if the book is not found.
+Error Handling
+For any non-existent routes, the server responds with a 404 error and a message: "Route not found."
+Basic validation ensures all fields are provided when adding a new book.
